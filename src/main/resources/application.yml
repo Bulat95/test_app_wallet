@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:wallet_db}
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USERNAME:wallet_user}
+    password: ${DB_PASSWORD:wallet_password}
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+server:
+  address: ${LOCALHOST:localhost}
+  port: ${PORT:8080}
+wallet:
+  max-retries: 3 # гоняем попытки
